@@ -1,425 +1,505 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eduardo Henquín | Enlaces</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eduardo Henquín | Enlaces</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/jpeg"
+      href="https://i.postimg.cc/Gmj30XGx/icono.jpg"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://i.postimg.cc/Gmj30XGx/icono.jpg"
+    />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="icon" type="image/jpeg" href="https://i.postimg.cc/Gmj30XGx/icono.jpg">
-  <link rel="apple-touch-icon" href="https://i.postimg.cc/Gmj30XGx/icono.jpg">
+    <style>
+      /* --- VARIABLES DE COLOR --- */
+      :root {
+        --bg-top: #0f172a;
+        --bg-bottom: #3f4c6b;
+        --btn-bg: rgba(255, 255, 255, 0.1);
+        --btn-border: #ffffff;
+        --text-color: #ffffff;
+      }
 
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
+      body {
+        background: linear-gradient(
+          180deg,
+          var(--bg-top) 0%,
+          var(--bg-bottom) 100%
+        );
+        min-height: 100vh;
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--text-color);
+        padding: 40px 20px;
 
+        /* (AGREGADO) necesario para el fondo pro con zoom */
+        position: relative;
+        overflow-x: hidden;
+      }
 
-  <style>
-    /* --- VARIABLES DE COLOR --- */
-    :root {
-      --bg-top: #0f172a;
-      --bg-bottom: #3f4c6b;
-      --btn-bg: rgba(255, 255, 255, 0.1);
-      --btn-border: #ffffff;
-      --text-color: #ffffff;
-    }
+      /* Perfil */
+      .profile-container {
+        text-align: center;
+        margin-bottom: 30px;
+      }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+      .avatar {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        border: 2px solid white;
+        object-fit: cover;
+        margin-bottom: 15px;
+      }
 
-    body {
-      background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
-      min-height: 100vh;
-      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: var(--text-color);
-      padding: 40px 20px;
+      .username {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        letter-spacing: -0.5px;
+      }
 
-      /* (AGREGADO) necesario para el fondo pro con zoom */
-      position: relative;
-      overflow-x: hidden;
-    }
+      /* Iconos Sociales superiores */
+      .social-bar {
+        display: flex;
+        gap: 25px;
+        margin-bottom: 40px;
+        font-size: 24px;
+      }
 
-    /* Perfil */
-    .profile-container {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+      .social-bar a {
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+      }
 
-    .avatar {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      border: 2px solid white;
-      object-fit: cover;
-      margin-bottom: 15px;
-    }
+      .social-bar a:hover {
+        opacity: 0.7;
+        transform: scale(1.1);
+      }
 
-    .username {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      letter-spacing: -0.5px;
-    }
+      /* Botones de Enlace */
+      .links-container {
+        width: 100%;
+        max-width: 450px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
 
-    /* Iconos Sociales superiores */
-    .social-bar {
-      display: flex;
-      gap: 25px;
-      margin-bottom: 40px;
-      font-size: 24px;
-    }
+      .link-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 20px;
+        background: var(--btn-bg);
+        border: 1px solid var(--btn-border);
+        border-radius: 50px;
+        text-decoration: none;
+        color: white;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
 
-    .social-bar a {
-      color: white;
-      text-decoration: none;
-      transition: 0.3s;
-    }
+      .link-card:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.02);
+      }
 
-    .social-bar a:hover {
-      opacity: 0.7;
-      transform: scale(1.1);
-    }
+      /* Estilo para el separador */
+      .separator {
+        width: 100%;
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.5),
+          rgba(255, 255, 255, 0)
+        );
+        margin: 10px 0;
+      }
 
-    /* Botones de Enlace */
-    .links-container {
-      width: 100%;
-      max-width: 450px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
+      .link-card i {
+        position: absolute;
+        left: 25px;
+        font-size: 18px;
+      }
 
-    .link-card {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px 20px;
-      background: var(--btn-bg);
-      border: 1px solid var(--btn-border);
-      border-radius: 50px;
-      text-decoration: none;
-      color: white;
-      font-weight: 600;
-      font-size: 15px;
-      transition: all 0.3s ease;
-      position: relative;
-    }
+      .dots {
+        position: absolute;
+        right: 25px;
+        opacity: 0.5;
+        font-size: 12px;
+      }
 
-    .link-card:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: scale(1.02);
-    }
+      footer {
+        margin-top: 50px;
+        font-size: 12px;
+        opacity: 0.6;
+      }
 
-    /* Estilo para el separador */
-    .separator {
-      width: 100%;
-      border: 0;
-      height: 1px;
-      background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
-      margin: 10px 0;
-    }
+      .section-title {
+        margin: 35px 0 15px 0;
+        text-align: center;
+        font-size: 13px;
+        letter-spacing: 2px;
+        font-weight: 600;
+        opacity: 0.7;
+      }
 
-    .link-card i {
-      position: absolute;
-      left: 25px;
-      font-size: 18px;
-    }
+      .section-divider {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(255, 255, 255, 0.5),
+          transparent
+        );
+        margin: 30px 0 10px 0;
+      }
 
-    .dots {
-      position: absolute;
-      right: 25px;
-      opacity: 0.5;
-      font-size: 12px;
-    }
-
-    footer {
-      margin-top: 50px;
-      font-size: 12px;
-      opacity: 0.6;
-    }
-
-    .section-title {
-      margin: 35px 0 15px 0;
-      text-align: center;
-      font-size: 13px;
-      letter-spacing: 2px;
-      font-weight: 600;
-      opacity: 0.7;
-    }
-
-    .section-divider {
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
-      margin: 30px 0 10px 0;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /* =========================================================
+      /* =========================================================
        FONDO PRO: imagen real + zoom con scroll (NO rompe tu degradado)
        ========================================================= */
 
-    /* Capa de imagen (muy tenue) */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -2;
+      /* Capa de imagen (muy tenue) */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -2;
 
-      /* Imagen real elegida por vos (Unsplash ID D6P8FNyZxx4)
+        /* Imagen real elegida por vos (Unsplash ID D6P8FNyZxx4)
          Nota: uso source.unsplash.com para obtener la imagen directa */
-      background-image:
-        url("https://plus.unsplash.com/premium_photo-1661963212517-830bbb7d76fc?auto=format&fit=crop&fm=jpg&q=80&w=2400");
+        background-image: url("https://plus.unsplash.com/premium_photo-1661963212517-830bbb7d76fc?auto=format&fit=crop&fm=jpg&q=80&w=2400");
 
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
 
-      /* Muy sobrio para no tapar tipografía ni el degradado */
-      opacity: 0.14;
+        /* Muy sobrio para no tapar tipografía ni el degradado */
+        opacity: 0.14;
 
-      transform: scale(var(--bg-zoom, 1));
-      transform-origin: center;
-      will-change: transform;
-    }
-
-    /* Capa para proteger el texto (oscurece apenas, sin tapar el degradado) */
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background: radial-gradient(circle at top, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.38));
-      pointer-events: none;
-    }
-  </style>
-
-
-</head>
-
-<body>
-
-  <div class="profile-container">
-    <img src="https://i.ibb.co/wZ48fbCJ/edu.jpg" class="avatar" alt="Eduardo Henquín">
-    <h1 class="username">Dr. Eduardo R. Henquín</h1>
-  </div>
-
-  <div class="social-bar">
-    <a href="mailto:ehenquin@gmail.com" onclick="logClick('Email')"><i class="fa-regular fa-envelope"></i></a>
-    <a href="https://instagram.com/ehenquin" onclick="logClick('Instagram')"><i class="fa-brands fa-instagram"></i></a>
-    <a href="https://facebook.com/eduardo.henquin/" onclick="logClick('Facebook')"><i
-        class="fa-brands fa-facebook"></i></a>
-    <a href="https://wa.me/543424307388" onclick="logClick('WhatsApp')"><i class="fa-brands fa-whatsapp"></i></a>
-  </div>
-
-
-
-
-  <div class="links-container">
-
-
-
-
-
-    <div class="section-title">APLICACIONES REALIZADAS</div>
-
-
-    <a href="https://ehenquin.github.io/BajarVideos-backend/" class="link-card"
-      onclick="logClick('BAJAR audio y/o video de cualquier plataforma')"> ⬇️▶
-      BAJAR audio y/o video de cualquier plataforma <span class="dots">⋮</span></a>
-
-    <hr class="separator">
-
-
-
-    <a href="https://ehenquin.github.io/catalog-image-cleaner-v1/frontend/" class="link-card"
-      onclick="logClick('App Catalog Image Cleaner')">🧼 ▶ Limpieza de imágenes para catálogo
-      <span class="dots">⋮</span></a>
-
-    <a href="https://www.youtube.com/watch?v=jzJCAsupAN0" class="link-card"
-      onclick="logClick('Video Catalog Image Cleaner')">🎥🧼 ▶ Video | Limpieza de imágenes catálogo
-      <span class="dots">⋮</span></a>
-
-    <hr class="separator">
-
-
-
-
-
-    <a href="https://ehenquin.github.io/gestion-docente/" class="link-card" onclick="logClick('App Gestion Docente')">🎓
-      ▶ Gestión docente (escuelas, horarios, notas, alumnos)
-      <span class="dots">⋮</span> </a>
-    <hr class="separator">
-
-    <a href="https://ehenquin.github.io/Simuladores-de-Fisica-2026/" class="link-card"
-      onclick="logClick('Portada Simuladores Física 2026')">🌌 ▶ SIMULADORES DE FÍSICA 2026 
-      <span class="dots">⋮</span></a>
-
-    <a href="https://ehenquin.github.io/Simuladores-de-Fisica-Errores/" class="link-card"
-      onclick="logClick('Simulador Física Errores')">🧪 ▶ Simulador de Física | Errores experimentales
-      <span class="dots">⋮</span></a>
-
-    <a href="https://ehenquin.github.io/Simuladores-de-Fisica-Cinematica-2026/" class="link-card"
-      onclick="logClick('Simulador Física Cinemática')">🚗 ▶ Simulador de Física | Cinemática
-      <span class="dots">⋮</span></a>
-
-    <a href="https://ehenquin.github.io/Simuladores-de-Fisica-Dinamica-2026/" class="link-card"
-      onclick="logClick('Simulador Física Dinámica')">⚖️ ▶ Simulador de Física | Dinámica
-      <span class="dots">⋮</span></a>
-
-        <a href="https://ehenquin.github.io/Simuladores-de-Fisica-Fluidos/" class="link-card"
-      onclick="logClick('Simulador Física Fluidos')">💧 ▶ Simulador de Física | Fluidos
-      <span class="dots">⋮</span></a>
-
-    <hr class="separator">
-
-
-
-
-
-    <a href="https://ehenquin.github.io/PuntoDeVentaKiosco/" class="link-card"
-      onclick="logClick('App PuntoDeVentaKiosco')">
-      🛒 ▶ PuntoDeVentaKiosco
-      <span class="dots">⋮</span></a>
-    <hr class="separator">
-
-
-
-
-    <a href="https://ehenquin.github.io/Gestion_Integral_Gym/" class="link-card"
-      onclick="logClick('App Gestion Gym')">🏋️ ▶ Gestión integral de gimnasios (socios, pagos, control)
-      <span class="dots">⋮</span> </a>
-
-    <a href="https://ehenquin.github.io/rutina-gym-pro/" class="link-card" onclick="logClick('App Rutina Gym Pro')"> 📋
-      ▶ Rutinas Gym Pro (PDF + envío por WhatsApp)
-      <span class="dots">⋮</span>
-    </a>
-
-    <hr class="separator">
-
-
-
-
-    <a href="https://ehenquin.github.io/diccionario-lsa" class="link-card" onclick="logClick('App Diccionario')">🤘 ▶
-      App diccionario LSA-AR <span class="dots">⋮</span></a>
-    <a href="https://youtu.be/-UHb5GD6DTU" class="link-card"
-      onclick="logClick('Video de Funcionameinto del diccionario LSA-AR')">🎥🤘 ▶ Video | Diccionario LSA-AR <span
-        class="dots">⋮</span></a>
-
-    <hr class="separator">
-
-    <a href="https://www.youtube.com/watch?v=ATydixMZapU" class="link-card" onclick="logClick('App SantaFe Reporta')">
-      📍 ▶ Santa Fe Reporta (mapa + fotos + ubicación)
-      <span class="dots">⋮</span></a>
-
-
-
-    <a href="https://www.youtube.com/watch?v=1wC4NBftkOs" class="link-card"
-      onclick="logClick('HELIOS SF - Sistema de Inteligencia Artificial Documental')"> ▶
-      HELIOS SF - Sistema de Inteligencia Artificial Documental <span class="dots">⋮</span></a>
-
-    <hr class="separator">
-
-
-    <a href="https://ehenquin.github.io/Exposiciones_Estructura_Y_Belleza_Kennel_Club_Santa_Fe/" class="link-card"
-      onclick="logClick('Planilla Exposiciones')">🏆 ▶ Planilla electrónica de Exposiciones Generales Perros <span
-        class="dots">⋮</span></a>
-    <a href="https://www.youtube.com/watch?v=D0ZzIglw9nU" class="link-card"
-      onclick="logClick('Video de Funcionameinto Planilla General de Exposiciones')">🎥🐕 ▶ Video | Planilla GRALES.
-      Exposiciones <span class="dots">⋮</span></a>
-    <hr class="separator">
-
-
-
-    <a href="https://ehenquin.github.io/Exposiciones_Estructura_Y_Belleza_Kennel_Club_Santa_Fe_LOCALES/"
-      class="link-card" onclick="logClick('Planilla Exposiciones')">🏆 ▶ Planilla electrónica de Exposiciones Locales
-      Perros <span class="dots">⋮</span></a>
-    <a href="https://youtu.be/zhvdoxHpqRc?si=bQhcrxC1fZdel_tJ" class="link-card"
-      onclick="logClick('Video de Funcionameinto Planilla Locales de Exposiciones')">🎥🐕 ▶ Video | Planilla LOCALES
-      Exposiciones <span class="dots">⋮</span></a>
-    <a href="https://ehenquin.github.io/Exposiciones_Estructura_Y_Belleza_Kennel_Club_Santa_Fe_LOCALES/public.html"
-      class="link-card" onclick="logClick('Link Público | Resultados LOCALES')">🏆 ▶ Link Público | Resultados LOCALES
-      <span class="dots">⋮</span></a>
-
-
-
-
-
-    <div class="section-divider"></div>
-
-  </div>
-
-  <footer>Eduardo Henquín © 2026</footer>
-
-  <!-- (AGREGADO) Zoom del fondo con scroll -->
-  <script>
-    (function () {
-      const maxZoom = 1.8; //                            zoom final!!!!!!!!!!!
-      const minZoom = 0.95;
-
-      function onScroll() {
-        const doc = document.documentElement;
-        const scrollTop = window.scrollY || doc.scrollTop || 0;
-        const scrollMax = (doc.scrollHeight - window.innerHeight) || 1;
-
-        const t = Math.min(1, Math.max(0, scrollTop / scrollMax)); // 0..1
-        const zoom = minZoom + (maxZoom - minZoom) * t;
-
-        doc.style.setProperty('--bg-zoom', zoom.toFixed(4));
+        transform: scale(var(--bg-zoom, 1));
+        transform-origin: center;
+        will-change: transform;
       }
 
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll);
-      onScroll();
-    })();
-  </script>
+      /* Capa para proteger el texto (oscurece apenas, sin tapar el degradado) */
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background: radial-gradient(
+          circle at top,
+          rgba(0, 0, 0, 0.15),
+          rgba(0, 0, 0, 0.38)
+        );
+        pointer-events: none;
+      }
+    </style>
+  </head>
 
-  <!-- Tu script de logging (SIN CAMBIOS) -->
-  <script>
-    const LOG_URL = "https://script.google.com/macros/s/AKfycbwATJI3snGrUdXapC1rqzm70fhluJ4WM_FJHQJZTvBgq08XzK4bmBswR5QCAhIyT25W/exec";
+  <body>
+    <div class="profile-container">
+      <img
+        src="https://i.ibb.co/wZ48fbCJ/edu.jpg"
+        class="avatar"
+        alt="Eduardo Henquín"
+      />
+      <h1 class="username">Dr. Eduardo R. Henquín</h1>
+    </div>
 
-    async function enviarLog(evento, detalle) {
-      try {
-        await fetch(LOG_URL, {
-          method: "POST",
-          mode: "no-cors",
-          body: JSON.stringify({
-            event: evento,
-            user: detalle,
-            page: "Linktree_Personal",
-            ua: navigator.userAgent
-          })
-        });
-      } catch (e) { console.log("Error de log"); }
-    }
+    <div class="social-bar">
+      <a href="mailto:ehenquin@gmail.com" onclick="logClick('Email')"
+        ><i class="fa-regular fa-envelope"></i
+      ></a>
+      <a href="https://instagram.com/ehenquin" onclick="logClick('Instagram')"
+        ><i class="fa-brands fa-instagram"></i
+      ></a>
+      <a
+        href="https://facebook.com/eduardo.henquin/"
+        onclick="logClick('Facebook')"
+        ><i class="fa-brands fa-facebook"></i
+      ></a>
+      <a href="https://wa.me/543424307388" onclick="logClick('WhatsApp')"
+        ><i class="fa-brands fa-whatsapp"></i
+      ></a>
+    </div>
 
-    window.onload = () => {
-      enviarLog("PAGINA_ABIERTA", "Visitante_Anonimo");
-    };
+    <div class="links-container">
+      <div class="section-title">APLICACIONES REALIZADAS</div>
 
-    function logClick(linkName) {
-      enviarLog("CLIC_BOTON", linkName);
-    }
-  </script>
+      <a
+        href="https://ehenquin.github.io/BajarVideos-backend/"
+        class="link-card"
+        onclick="logClick('BAJAR audio y/o video de cualquier plataforma')"
+      >
+        ⬇️▶ BAJAR audio y/o video de cualquier plataforma
+        <span class="dots">⋮</span></a
+      >
 
-</body>
+      <hr class="separator" />
 
+      <a
+        href="https://ehenquin.github.io/catalog-image-cleaner-v1/frontend/"
+        class="link-card"
+        onclick="logClick('App Catalog Image Cleaner')"
+        >🧼 ▶ Limpieza de imágenes para catálogo <span class="dots">⋮</span></a
+      >
+
+      <a
+        href="https://www.youtube.com/watch?v=jzJCAsupAN0"
+        class="link-card"
+        onclick="logClick('Video Catalog Image Cleaner')"
+        >🎥🧼 ▶ Video | Limpieza de imágenes catálogo
+        <span class="dots">⋮</span></a
+      >
+
+      <hr class="separator" />
+
+      <a
+        href="https://ehenquin.github.io/gestion-docente/"
+        class="link-card"
+        onclick="logClick('App Gestion Docente')"
+        >🎓 ▶ Gestión docente (escuelas, horarios, notas, alumnos)
+        <span class="dots">⋮</span>
+      </a>
+      <hr class="separator" />
+
+      <a
+        href="https://ehenquin.github.io/Simuladores-de-Fisica-2026/"
+        class="link-card"
+        onclick="logClick('Portada Simuladores Física 2026')"
+        >🌌 ▶ SIMULADORES DE FÍSICA 2026 <span class="dots">⋮</span></a
+      >
+
+      <a
+        href="https://ehenquin.github.io/Simuladores-de-Fisica-Errores/"
+        class="link-card"
+        onclick="logClick('Simulador Física Errores')"
+        >🧪 ▶ Simulador de Física | Errores experimentales
+        <span class="dots">⋮</span></a
+      >
+
+      <a
+        href="https://ehenquin.github.io/Simuladores-de-Fisica-Cinematica-2026/"
+        class="link-card"
+        onclick="logClick('Simulador Física Cinemática')"
+        >🚗 ▶ Simulador de Física | Cinemática <span class="dots">⋮</span></a
+      >
+
+      <a
+        href="https://ehenquin.github.io/Simuladores-de-Fisica-Dinamica-2026/"
+        class="link-card"
+        onclick="logClick('Simulador Física Dinámica')"
+        >⚖️ ▶ Simulador de Física | Dinámica <span class="dots">⋮</span></a
+      >
+
+      <a
+        href="https://ehenquin.github.io/Simuladores-de-Fisica-Fluidos/"
+        class="link-card"
+        onclick="logClick('Simulador Física Fluidos')"
+        >💧 ▶ Simulador de Física | Fluidos <span class="dots">⋮</span></a
+      >
+
+      <hr class="separator" />
+
+      <a
+        href="https://ehenquin.github.io/PuntoDeVentaKiosco/"
+        class="link-card"
+        onclick="logClick('App PuntoDeVentaKiosco')"
+      >
+        🛒 ▶ PuntoDeVentaKiosco
+        <span class="dots">⋮</span></a
+      >
+      <hr class="separator" />
+
+      <a
+        href="https://ehenquin.github.io/Gestion_Integral_Gym/"
+        class="link-card"
+        onclick="logClick('App Gestion Gym')"
+        >🏋️ ▶ Gestión integral de gimnasios (socios, pagos, control)
+        <span class="dots">⋮</span>
+      </a>
+
+      <a
+        href="https://ehenquin.github.io/rutina-gym-pro/"
+        class="link-card"
+        onclick="logClick('App Rutinas Gym Pro Usuario')"
+      >
+        📋 ▶ Rutinas Gym Pro | Registro de rutinas
+        <span class="dots">⋮</span>
+      </a>
+
+      <a
+        href="https://ehenquin.github.io/rutina-gym-admin/"
+        class="link-card"
+        onclick="logClick('Panel Admin Rutinas Gym Pro')"
+      >
+        🛠️ ▶ Rutinas Gym Pro | Panel administrativo
+        <span class="dots">⋮</span>
+      </a>
+
+      <hr class="separator" />
+
+      <a
+        href="https://ehenquin.github.io/diccionario-lsa"
+        class="link-card"
+        onclick="logClick('App Diccionario')"
+        >🤘 ▶ App diccionario LSA-AR <span class="dots">⋮</span></a
+      >
+      <a
+        href="https://youtu.be/-UHb5GD6DTU"
+        class="link-card"
+        onclick="logClick('Video de Funcionameinto del diccionario LSA-AR')"
+        >🎥🤘 ▶ Video | Diccionario LSA-AR <span class="dots">⋮</span></a
+      >
+
+      <hr class="separator" />
+
+      <a
+        href="https://www.youtube.com/watch?v=ATydixMZapU"
+        class="link-card"
+        onclick="logClick('App SantaFe Reporta')"
+      >
+        📍 ▶ Santa Fe Reporta (mapa + fotos + ubicación)
+        <span class="dots">⋮</span></a
+      >
+
+      <a
+        href="https://www.youtube.com/watch?v=1wC4NBftkOs"
+        class="link-card"
+        onclick="
+          logClick('HELIOS SF - Sistema de Inteligencia Artificial Documental')
+        "
+      >
+        ▶ HELIOS SF - Sistema de Inteligencia Artificial Documental
+        <span class="dots">⋮</span></a
+      >
+
+      <hr class="separator" />
+
+      <a
+        href="https://ehenquin.github.io/Exposiciones_Estructura_Y_Belleza_Kennel_Club_Santa_Fe/"
+        class="link-card"
+        onclick="logClick('Planilla Exposiciones')"
+        >🏆 ▶ Planilla electrónica de Exposiciones Generales Perros
+        <span class="dots">⋮</span></a
+      >
+      <a
+        href="https://www.youtube.com/watch?v=D0ZzIglw9nU"
+        class="link-card"
+        onclick="
+          logClick('Video de Funcionameinto Planilla General de Exposiciones')
+        "
+        >🎥🐕 ▶ Video | Planilla GRALES. Exposiciones
+        <span class="dots">⋮</span></a
+      >
+      <hr class="separator" />
+
+      <a
+        href="https://ehenquin.github.io/Exposiciones_Estructura_Y_Belleza_Kennel_Club_Santa_Fe_LOCALES/"
+        class="link-card"
+        onclick="logClick('Planilla Exposiciones')"
+        >🏆 ▶ Planilla electrónica de Exposiciones Locales Perros
+        <span class="dots">⋮</span></a
+      >
+      <a
+        href="https://youtu.be/zhvdoxHpqRc?si=bQhcrxC1fZdel_tJ"
+        class="link-card"
+        onclick="
+          logClick('Video de Funcionameinto Planilla Locales de Exposiciones')
+        "
+        >🎥🐕 ▶ Video | Planilla LOCALES Exposiciones
+        <span class="dots">⋮</span></a
+      >
+      <a
+        href="https://ehenquin.github.io/Exposiciones_Estructura_Y_Belleza_Kennel_Club_Santa_Fe_LOCALES/public.html"
+        class="link-card"
+        onclick="logClick('Link Público | Resultados LOCALES')"
+        >🏆 ▶ Link Público | Resultados LOCALES <span class="dots">⋮</span></a
+      >
+
+      <div class="section-divider"></div>
+    </div>
+
+    <footer>Eduardo Henquín © 2026</footer>
+
+    <!-- (AGREGADO) Zoom del fondo con scroll -->
+    <script>
+      (function () {
+        const maxZoom = 1.8; //                            zoom final!!!!!!!!!!!
+        const minZoom = 0.95;
+
+        function onScroll() {
+          const doc = document.documentElement;
+          const scrollTop = window.scrollY || doc.scrollTop || 0;
+          const scrollMax = doc.scrollHeight - window.innerHeight || 1;
+
+          const t = Math.min(1, Math.max(0, scrollTop / scrollMax)); // 0..1
+          const zoom = minZoom + (maxZoom - minZoom) * t;
+
+          doc.style.setProperty("--bg-zoom", zoom.toFixed(4));
+        }
+
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll);
+        onScroll();
+      })();
+    </script>
+
+    <!-- Tu script de logging (SIN CAMBIOS) -->
+    <script>
+      const LOG_URL =
+        "https://script.google.com/macros/s/AKfycbwATJI3snGrUdXapC1rqzm70fhluJ4WM_FJHQJZTvBgq08XzK4bmBswR5QCAhIyT25W/exec";
+
+      async function enviarLog(evento, detalle) {
+        try {
+          await fetch(LOG_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify({
+              event: evento,
+              user: detalle,
+              page: "Linktree_Personal",
+              ua: navigator.userAgent,
+            }),
+          });
+        } catch (e) {
+          console.log("Error de log");
+        }
+      }
+
+      window.onload = () => {
+        enviarLog("PAGINA_ABIERTA", "Visitante_Anonimo");
+      };
+
+      function logClick(linkName) {
+        enviarLog("CLIC_BOTON", linkName);
+      }
+    </script>
+  </body>
 </html>
